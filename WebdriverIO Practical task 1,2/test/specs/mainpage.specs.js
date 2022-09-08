@@ -5,7 +5,7 @@ describe ('Create a New Paste without authorization', () => {
         await page('main').open();
     } )
 
-    it.only ('I Can Win', async () => {
+    it ('I Can Win', async () => {
     // * Code: "Hello from WebDriver"  
     
         await page('main').newPaste.setValue('Hello from webdriverIO'); 
@@ -62,12 +62,12 @@ git push origin master --force`)
     
     //* Syntax is suspended for bash    
 
-    await expect($('//a[@href="/archive/bash"]')).toHaveText('Bash')
+    await expect(page('posted').leftBtn).toHaveText('Bash')
     await browser.pause(3000)
   
     //* Check that the code matches the one entered in paragraph 2
     
-    await expect($('//textarea')).toHaveText(`git config --global user.name "Sheriff in Town"
+    await expect(page('posted').textArea).toHaveText(`git config --global user.name "Sheriff in Town"
 git reset $ (git commit-tree HEAD ^ {tree} -m "Legacy code")
 git push origin master --force`)
     }) 
