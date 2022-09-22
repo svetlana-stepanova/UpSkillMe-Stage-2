@@ -1,12 +1,13 @@
 const { page } = require('../../pageobject/pages/index.js');
-const { waitAndClick } = require('../../utilities/helper')
+const { waitAndClick } = require('../../utilities/helper.js');
+const testData = require('../../data/testData.js')
 
 describe ('Create a New Paste without authorization', () => {
    beforeEach(async () => {
         await page('main').open();
     })
 
-    it ('I Can Win', async () => {
+    it('I Can Win', async () => {
 
     // * Code: "Hello from WebDriver"  
 
@@ -28,14 +29,12 @@ describe ('Create a New Paste without authorization', () => {
 
     })
 
-    it ('Bring It On', async () => {
-       
+    it('Bring It On', async () => {
+
     //* Code
 
-        await page('main').newPaste.setValue( `git config --global user.name "Sheriff in Town"
-        git reset $ (git commit-tree HEAD ^ {tree} -m "Legacy code")
-        git push origin master --force`)                                
-
+        await page('main').newPaste.setValue(testData.pasteText)   
+        
     //* Syntax Highlighting: "Bash"
 
         await page('main').syntaxHighlightning.click()
@@ -48,12 +47,12 @@ describe ('Create a New Paste without authorization', () => {
 
     //* Paste Name / Title: "how to gain dominance among developers"
 
-        await page('main').pasteName.setValue('how to gain dominance among developers') 
+        await page('main').pasteName.setValue(testData.pasteName) 
         await page('main').createNewPaste()
 
     //* Browser page title matches Paste Name / Title
 
-        await expect(browser).toHaveTitleContaining('how to gain dominance among developers')
+        await expect(browser).toHaveTitleContaining(testData.pasteName)
     
     //* Syntax is suspended for bash    
 
@@ -61,8 +60,6 @@ describe ('Create a New Paste without authorization', () => {
   
     //* Check that the code matches the one entered in paragraph 2
     
-        await expect(page('posted').textArea).toHaveText( `git config --global user.name "Sheriff in Town"
-        git reset $ (git commit-tree HEAD ^ {tree} -m "Legacy code")
-        git push origin master --force`)
+        await expect(page('posted').textArea).toHaveText(testData.pasteText)
     }) 
 })
