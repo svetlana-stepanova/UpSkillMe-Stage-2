@@ -9,9 +9,10 @@ class MainPage extends BasePage {
     get newPaste () { return $('#postform-text')}
     get category () { return $('#select2-postform-category_id-container')}
 
-    /*
-      * @param item {'none' | 'cryptocurrency' | 'cybersecurity' | 'fixit'}
-    */
+    /**
+     * @param item {'none' | 'cryptocurrency' | 'cybersecurity' | 'fixit'}
+     */
+
     setCategory(item) {
         const selector = {
             none: '//li[text()="None"]',
@@ -25,9 +26,9 @@ class MainPage extends BasePage {
     get tags () {return $('.bootstrap-tagsinput')}
     get syntaxHighlightning () { return $('#select2-postform-format-container')}
 
-    /*
-      * @param item {'none' | 'bash' | 'c' | 'css'}
-    */
+    /**
+     * @param item {'none' | 'bash' | 'c' | 'css'}
+     */
 
     setSyntaxHighlightning(item) {
         const selector = {
@@ -38,11 +39,12 @@ class MainPage extends BasePage {
         }
         return $(selector[item])
     }
+
     get pasteExpiration () { return $('#select2-postform-expiration-container')} 
     
-    /*
-      * @param item {'never' | 'burnAfterRead' | 'tenMin' | 'oneHour'}
-    */
+    /**
+     * @param item {'never' | 'burnAfterRead' | 'tenMin' | 'oneHour'}
+     */
 
     setPasteExpiration(item) {
         const selector = {
@@ -57,11 +59,11 @@ class MainPage extends BasePage {
     get pasteExposure () { return $('#select2-postform-expiration-container')}
     get folder () { return $('[aria-labelledby=select2-postform-folder_key-container]')}
     get pasteName () { return $('#postform-name')}
-    get createNewPasteBtn (){ return $('[type=submit].btn')}
+    get createNewPasteBtn () { return $('[type=submit].btn')}
 
     open() {
-       return super.open('https://pastebin.com/')
-   }
+       return super.open('/')
+    }
 
    createNewPaste() {
     return this.createNewPasteBtn.click()

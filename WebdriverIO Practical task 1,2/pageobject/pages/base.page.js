@@ -7,10 +7,8 @@ class BasePage {
     }
 
    open (path) {
-    browser.url(path)
-    browser.maximizeWindow()  /*привязка протокола для загрузки страницы браузера. В параметр функции в качестве аргумента передаём url
-                            страницы*/
+    return browser.url(path)  
     }
 }
 
-module.exports = BasePage; //позволяет получать доступ к данному объекту для внешних файлов(модулей)
+module.exports = BasePage;
