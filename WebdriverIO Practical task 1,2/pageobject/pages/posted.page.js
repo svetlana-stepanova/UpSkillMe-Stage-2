@@ -6,7 +6,7 @@ class PostedPage extends BasePage {
         return $('//div[@class="left"]/a[1]')
     }
     get textArea () {
-        return $('ol.text')
+        return $('ol.bash')
     }
 
 }

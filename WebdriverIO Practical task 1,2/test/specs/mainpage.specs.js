@@ -1,10 +1,10 @@
 const { page } = require('../../pageobject/pages/index.js');
 const { waitAndClick } = require('../../utilities/helper.js');
-const testData = require('../../data/testData.js')
+const testData = require('../../data/testData.js');
 
 describe ('Create a New Paste without authorization', () => {
    beforeEach(async () => {
-        await page('main').open();
+        await page('main').open()
     })
 
     it('I Can Win', async () => {
@@ -38,7 +38,7 @@ describe ('Create a New Paste without authorization', () => {
     //* Syntax Highlighting: "Bash"
 
         await page('main').syntaxHighlightning.click()
-        await waitAndClick(page('main').setSyntaxHighlightning('bash'),2000)                 
+        await waitAndClick(page('main').setSyntaxHighlightning('bash'), 2000)                 
 
     //* Paste Expiration: "10 Minutes"
 
