@@ -3,5 +3,7 @@
 Automation tools - WebdriverIO practical tasks.
 
 Run test:
+
 npm install
+
 npm run wdio
